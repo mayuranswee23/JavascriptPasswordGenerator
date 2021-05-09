@@ -8,7 +8,10 @@ var specialCharacter = "!@#$%^&*()"
 
 // empty array
 
+var passwordCharacters =[];
 
+// global state
+let state = {}
 
 //Ask to prepare password
 function generatePassword (){
@@ -29,22 +32,43 @@ function generatePassword (){
   }
 
   // creates lowercase 
-   lowercaseCharacter = window.confirm("Would you like lowercase characters in your password?");
-    state.lowercaseCharacter = lowercaseCharacter;
-    
+   var lowerCase = window.confirm("Would you like lowercase characters in your password?");
+    //console.log(lowerCase);
+    state.lowerCase = lowerCase;
+
+    if (state.lowerCase){
+      passwordCharacters.push(...[...lowercaseCharacter]);
+    }
+
   //creates uppercase
-  uppercaseCharacter = window.confirm("Would you like uppercase characters in your password?");
+  var upperCase = window.confirm("Would you like uppercase characters in your password?");
+
+  state.upperCase = upperCase;
+
+    if (state.upperCase){
+      passwordCharacters.push(...[...uppercaseCharacter]);
+    }
 
   // creates number 
-  numberCharacter = window.confirm("Would you like numbers in your password?");
+  var numberChar = window.confirm("Would you like numbers in your password?");
+  state.numberChar = numberChar;
 
+    if (state.lowerCase){
+      passwordCharacters.push(...[...numberCharacter]);
+    }
   // creates special characters
-  specialCharacter = window.confirm("Would you like special characters in your password?");
+  var specialChar = window.confirm("Would you like special characters in your password?");
+  state.specialChar = specialChar;
 
+    if (state.specialChar){
+      passwordCharacters.push(...[...specialCharacter]);
+    }
+    //console.log (passwordCharacters)
   // if no characters are selected
  if (!lowercaseCharacter&&!uppercaseCharacter&&!numberCharacter&&!specialCharacter){
   alert ("You need to have at least one character type");
 }
+
 
 
 
