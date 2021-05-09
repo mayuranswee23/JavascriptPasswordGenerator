@@ -76,13 +76,15 @@ function generatePassword (){
 //generate random password
 
 for (var i = 0; i < promptLength.length; i++){
-  var random = Math.floor(Math.random() * passwordCharacters.length);
-  passcode = passcode + passwordCharacters[random];
+  var randomPassword = Math.floor(Math.random() * passwordCharacters.length);
+  var finalPassword = finalPassword + passwordCharacters[randomPassword];
   console.log (passcode); 
 }
+
+return finalPassword; 
 };
 
-// return passcode; 
+
 
 
 
