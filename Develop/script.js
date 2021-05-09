@@ -9,6 +9,8 @@ var specialCharacter = "!@#$%^&*()"
 // empty array
 
 var passwordCharacters =[];
+var passwordResult =[];
+
 
 // global state
 let state = {}
@@ -21,14 +23,14 @@ function generatePassword (){
 // How long is the password
   var promptLength = window.prompt ("How many characters would you like? Please choose between 8 to 26 characters.");
 
-  if (promptLength < 8 || promptLength > 26) {
+  if (promptLength < 8 || promptLength > 128) {
     // console.log (promptLength);
-    alert("Passwords must be bettwen 8 to 26 characters");
+    alert("Passwords must be bettwen 8 to 128 characters");
     return "";
   }
   else if (isNaN(promptLength)){
-    alert("Please input a number between 8 and 26");
-    
+    alert("Please input a number between 8 and 128");
+    return "";
   }
 
   // creates lowercase 
@@ -63,20 +65,29 @@ function generatePassword (){
     if (state.specialChar){
       passwordCharacters.push(...[...specialCharacter]);
     }
-    //console.log (passwordCharacters)
+
+  //console.log (passwordCharacters)
   // if no characters are selected
- if (!lowercaseCharacter&&!uppercaseCharacter&&!numberCharacter&&!specialCharacter){
+  if (lowercaseCharacter==false&&uppercaseCharacter==false&&numberCharacter==false&&specialCharacter==false){
   alert ("You need to have at least one character type");
+  return "";
 }
 
+//generate random password
 
-
-
-
-
-
-
+for (var i = 0; i < promptLength.length; i++){
+  var random = Math.floor(Math.random() * passwordCharacters.length);
+  passcode = passcode + passwordCharacters[random];
+  console.log (passcode); 
 }
+};
+
+// return passcode; 
+
+
+
+
+//};
 
 
 
