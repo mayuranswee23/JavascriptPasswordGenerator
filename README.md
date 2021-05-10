@@ -9,6 +9,6 @@
 ## Javascript
 ## HTML and CSS
 
-#Website 
+#Website https://mayuranswee23.github.io/JavascriptPasswordGenerator/
 
 # Created by Mayuran Sweentherarajah
